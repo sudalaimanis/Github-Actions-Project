@@ -120,5 +120,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: sudalaimmanis/bankapp:latest
+        tags: sudalaimmanis/bankapp:v01
         file: ./Dockerfile
