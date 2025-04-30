@@ -121,7 +121,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: sudalaimmanis/bankapp:v01
+        tags: sudalaimmanis/bankapp:v02
         file: ./Dockerfile
 
   deploy_to_kubernetes:
@@ -149,11 +149,11 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-3
+        aws-region: ap-south-1
 
     - name: Update kubeconfig
       run: |
-        aws eks update-kubeconfig --name sudalai-cluster --region eu-west-3
+        aws eks update-kubeconfig --name sudalai-cluster --region ap-south-1
 
     - name: Deploy to EKS
       run: |
