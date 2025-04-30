@@ -115,13 +115,13 @@ jobs:
       with:
         username: ${{ vars.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and Push Docker image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        push: true
-        tags: sudalaimmanis/bankapp:v02
-        file: ./Dockerfile
+    - name: Docker Build
+      run: |
+        docker build -t sudalaimmanis/bankapp:v02 -f ./Dockerfile .
+
+    - name: Docker Push
+      run: |
+        docker push sudalaimmanis/bankapp:v02
 
   deploy_to_kubernetes:
     runs-on: self-hosted
